@@ -5,13 +5,13 @@ function solution(lottos, win_nums) {
   var answer = [];
 
   // 코드 구현
-  let match = 0;
-  let lottos_cnt = 0;
+  let match_cnt = 0;
+  let zero_cnt = 0;
 
   //0의 갯수 카운팅
   for (let x of lottos) {
     if (x === 0) {
-      lottos_cnt++;
+      zero_cnt++;
     }
   }
 
@@ -19,11 +19,11 @@ function solution(lottos, win_nums) {
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 6; j++) {
       if (lottos[i] === win_nums[j]) {
-        match++;
+        match_cnt++;
       }
     }
   }
-  switch (match + lottos_cnt) {
+  switch (match_cnt + zero_cnt) {
     // 일치 수 / 순위
     case 6:
       answer.push(1);
@@ -44,7 +44,7 @@ function solution(lottos, win_nums) {
       answer.push(6);
       break;
   }
-  switch (match) {
+  switch (match_cnt) {
     // 일치 수 / 순위
     case 6:
       answer.push(1);
