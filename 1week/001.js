@@ -8,14 +8,14 @@ function solution(lottos, win_nums) {
   let match = 0;
   let lottos_cnt = 0;
 
+  //0의 갯수 카운팅
   for (let x of lottos) {
     if (x === 0) {
       lottos_cnt++;
     }
   }
 
-
-
+  // 일치하는 숫자 카운팅
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 6; j++) {
       if (lottos[i] === win_nums[j]) {
