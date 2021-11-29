@@ -33,7 +33,7 @@ function solution(numbers, hand) {
 
       if (r === 1 || r === 3) {
         r = 1;
-      } else if (r === 2 || r === 4 || l === 6) {
+      } else if (r === 2 || r === 4 || r === 6) {
         r = 2;
       } else if (r === 5 || r === 7 || r === 9) {
         r = 3;
