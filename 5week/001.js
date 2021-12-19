@@ -4,18 +4,23 @@ function solution(n, lost, reserve) {
   var answer = 0;
 
   answer = n - lost.length;
-  for (let i = 0; i < reserve.length; i++) {
-    for (let j = 0; j < lost.length; j++) {
-      if (reserve[i] - 1 === lost[j]) {
-        answer++;
-      } else if (reserve[i] + 1 === lost[j]) {
+  let lostLen = lost.length;
+  let reserveLen = reserve.length;
+  for (let i = 0; i < lostLen; i++) {
+    for (let j = 0; j < reserveLen; j++) {
+      if (lost[i] - 1 === reserve[j]) {
+        reserve.splice(j, 1);
+        lost.splice(i, 1);
         answer++;
       }
-      if (reserve[i] + 1 === lost[j] && reserve[i] + 1 === lost[j]) {
-        answer--;
+      if (lost[i] + 1 === reserve[j]) {
+        reserve.splice(j, 1);
+        lost.splice(i, 1);
+        answer++;
       }
     }
   }
+
   return answer;
 }
 
