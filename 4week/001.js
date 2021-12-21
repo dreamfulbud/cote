@@ -35,3 +35,30 @@ function solution(N, stages) {
 
 console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); // [3, 4, 2, 1, 5]
 console.log(solution(4, [4, 4, 4, 4, 4])); // [4, 1, 2, 3]
+
+console.log("-----------------");
+function solution2(N, stages) {
+  let answer = [];
+  let fail = [];
+  let pass = stages.length;
+
+  for (let i = 1; i <= N; i++) {
+    let failPeson = stages.filter((user) => user === i).length;
+    let 실패율 = failPeson / pass;
+    pass -= failPeson;
+    fail.push({ stage: i, '실패율': 실패율 });
+  }
+
+  fail.sort((a, b) => b['실패율'] - a['실패율']);
+
+  // for (let i of fail) {
+  //   answer.push(i['stage']);
+  // }
+
+  fail.forEach((el) => answer.push(el['stage']));
+
+  return answer;
+}
+
+console.log(solution2(5, [2, 1, 2, 6, 2, 4, 3, 3])); // [3, 4, 2, 1, 5]
+console.log(solution2(4, [4, 4, 4, 4, 4])); // [4, 1, 2, 3]
