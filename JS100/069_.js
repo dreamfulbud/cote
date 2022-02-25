@@ -1,4 +1,4 @@
-// 민규의 악수
+// 골드바흐의 추측
 function solution(num) {
 	let result = [];
 	if (num % 2 !== 0) {
