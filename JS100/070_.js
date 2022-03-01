@@ -1,15 +1,12 @@
-// 행렬 곱하기
+// // 행렬 곱하기
 function solution(a, b) {
-	let result = [];
-
-	if (a[0].length !== b.length) {
-		return -1;
-	} else {
-		for (let i = 0; i < a.length; i++) {
+	var result = [];
+	if (a[0].length === b.length) {
+		for (var i = 0; i < a.length; i++) {
 			let row = [];
-			for (let j = 0; j < a[0].length; j++) {
+			for (var j = 0; j < b[0].length; j++) {
 				let x = 0;
-				for (let k = 0; k < a[0].length; k++) {
+				for (var k = 0; k < b.length; k++) {
 					x += a[i][k] * b[k][j];
 				}
 				row.push(x);
@@ -17,6 +14,8 @@ function solution(a, b) {
 			result.push(row);
 		}
 		return result;
+	} else {
+		return -1;
 	}
 }
 
@@ -32,13 +31,14 @@ console.log(
 		]
 	)
 ); //[ [ 1, 6 ], [ 2, 12 ] ]
-
+console.log(solution([[1], [2], [3]], [[1, 2, 3]])); //
 console.log(
 	solution(
 		[[1, 2, 3]],
 		[
-			[1, 0],
-			[0, 3],
+			[2, 3],
+			[2, 3],
 		]
 	)
-); //[ [ 1, 6 ], [ 2, 12 ] ]
+);
+console.log(solution([[1, 2, 3]], [[1, 2, 3]])); //
